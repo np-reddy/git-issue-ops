@@ -25,5 +25,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: curl -vk http://34.70.251.160/ui/login/
+        run: 
+          echo Checking connection to artifactory UI
+          curl -k http://34.70.251.160/ui/login/
+          echo Checking connection to artifactory api
+          curl -k http://34.70.251.160:8081
 
