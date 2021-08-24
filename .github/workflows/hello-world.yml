@@ -34,3 +34,6 @@ jobs:
         run: |
           echo "Issue title: ${{ github.event.issue.title}}"
           echo "Issue description: ${{ github.event.issue.body}}"
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
