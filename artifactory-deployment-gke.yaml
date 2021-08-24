@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+  labels:
+    app: artifactory
+    name: artifactory
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: artifactory
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: artifactory
+    spec:
+      containers:
+      - image: us-central1-docker.pkg.dev/infra-inkwell-323006/devops-tools/artifactory-oss:latest
+        imagePullPolicy: Always
+        name: artifactory-oss
+        volumeMounts:
+        - mountPath: /var/opt/jfrog/artifactory
+          name: artifact-storage
+      securityContext:
+        fsGroup: 1030
+        runAsGroup: 1030
+        runAsUser: 1030
+      volumes:
+      - name: artifact-storage
+        persistentVolumeClaim:
+          claimName: artifact-storage
