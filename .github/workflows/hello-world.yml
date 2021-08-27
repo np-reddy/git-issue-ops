@@ -6,7 +6,7 @@ name: Test issueops
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   issues: 
-    types: [opened, edited]
+    #types: [opened, edited]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # if: github.event.issue.labels.name == 'arti-repo'
+    # if: github.event.label.name == 'arti-repo'
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -35,7 +35,7 @@ jobs:
           echo "Issue title: ${{ github.event.issue.title}}"
           echo "Issue description: ${{ github.event.issue.body}}"
           echo "Issue label: ${{ github.event.issue.labels.name }}"
-          echo "Issue label: ${{ github.event.labels.name }}"
+          echo "Issue label: ${{ github.event.label.name }}"
           echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
