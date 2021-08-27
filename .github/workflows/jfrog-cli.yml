@@ -22,4 +22,5 @@ jobs:
           jfrog rt bag
           # Publish build info
           jfrog rt bp
-          jfrog rt gc testers
+          #jfrog rt gc testers
+          jfrog -v
