@@ -11,7 +11,7 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v1
         with:
-          version: 2.2.1
+          version: '2.2.1'
         env:
           JF_ARTIFACTORY_SERVER: ${{ secrets.JF_ARTIFACTORY_SERVER_1 }}
       - name: Run JFrog CLI
