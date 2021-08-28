@@ -19,5 +19,7 @@ jobs:
       - name: Change env
         run: |
           GITHUB_REPO1=new
+      - name: Desplay new env
+        run: |
           echo $GITHUB_REPO1
         
