@@ -15,9 +15,9 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          echo ${{ env.GITHUB_REPO1 }}
+          echo $GITHUB_REPO1
       - name: Change env
         run: |
-          env.GITHUB_REPO1=new
-          echo ${{ env.GITHUB_REPO1 }}
+          GITHUB_REPO1=new
+          echo $GITHUB_REPO1
         
