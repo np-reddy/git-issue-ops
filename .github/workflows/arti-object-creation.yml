@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v1
       - name: Parse the Issue
         run: |
-          echo "${{ github.event.issue.body}}" > issue.body.txt
-          ISSUEFILE= issue.body.txt
+          echo "${{ github.event.issue.body}}" > "${{ github.workspace }}"/issue.body.txt
+          ISSUEFILE= "${{ github.workspace }}"/issue.body.txt
           echo $ISSUEFILE
           which cut
           #GITHUB_REPO1=`cat $ISSUEFILE | grep github.repo | cut -d'=' -f2`
