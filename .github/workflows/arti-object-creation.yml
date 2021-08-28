@@ -25,9 +25,6 @@ jobs:
           echo $ARTI_REPO_PKG
           ARTI_REPO_NAME=`echo "$GITHUB_REPO1-$ARTI_REPO_PKG-$ARTI_REPO_TYPE"`
           echo $ARTI_REPO_NAME
-     # - name: Get Users from the repo
-     #   run: |
-     #   echo $GITHUB_REPO1
           curl -XGET -H "Authorization: token ${{ secrets.GH_ADMIN_TOKEN }}" https://api.github.com/repos/np-reddy/$GITHUB_REPO1/collaborators | jq -r '.[] | .login as $u | .permissions | ([$u, .admin, .maintain, .push, .triage, .pull] | @csv)' | tr -d '"' > github.users.map
           while read users
           do
