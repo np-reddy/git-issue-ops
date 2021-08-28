@@ -16,7 +16,7 @@ jobs:
       - name: Parse the Issue
         run: |
           echo ${{ github.event.issue.body}} > ${{ github.workspace }}/issue.body.txt
-          ISSUEFILE= ${{ github.workspace }}/issue.body.txt
+          ISSUEFILE=${{ github.workspace }}/issue.body.txt
           GITHUB_REPO1=`cat $ISSUEFILE | grep github.repo | cut -d'=' -f2`
           echo $GITHUB_REPO1
           ARTI_REPO_TYPE=`cat $ISSUEFILE | grep arti.repo.type | cut -d'=' -f2`
