@@ -50,6 +50,8 @@ jobs:
       - name: create Artifactory objects
         run: |
           cp artifactory-templates/user-template.csv arti-user.csv
+          cp artifactory-templates/repo-template-local.json repo-template-local.json
+          cp artifactory-templates/permission-target-template.json permission-target-template.json
           awk '{print "\""$0"\",\"Pwd1@"$0"\",\""$0"@dummy.com\""}' github.users.out >> arti-user.csv
           jfrog rt uc --csv arti-user.csv
           # jfrog rt udel --csv arti-user.csv --quiet
@@ -64,12 +66,6 @@ jobs:
           while read writer; do jfrog rt gau $GITHUB_REPO1-writers $writer ; done < writers.out
           jfrog rt gc $GITHUB_REPO1-admins
           while read admin; do jfrog rt gau $GITHUB_REPO1-admins $admin ; done < admins.out
-          jfrog rt rc artifactory-templates/repo-template-local.json --vars "repo-name=$ARTI_REPO_NAME;pkg-type=ARTI_REPO_PKG"
-          jfrog rt ptc artifactory-templates/permission-target-template.json --vars "PERM_NAME=$GITHUB_REPO1-perm;ARTI_REPO_NAME=$ARTI_REPO_NAME;GITHUB_REPO1=$GITHUB_REPO1"      
-          
-          
-          
-          
-          
-         
-        
+          jfrog rt rc repo-template-local.json --vars "repo-name=$ARTI_REPO_NAME;pkg-type=ARTI_REPO_PKG"
+          jfrog rt ptc permission-target-template.json --vars "PERM_NAME=$GITHUB_REPO1-perm;ARTI_REPO_NAME=$ARTI_REPO_NAME;GITHUB_REPO1=$GITHUB_REPO1" 
+             
