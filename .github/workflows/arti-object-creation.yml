@@ -15,7 +15,6 @@ jobs:
         uses: actions/checkout@v1
       - name: Parse the Issue
         run: |
-          pwd
           echo ${{ github.event.issue.body}} > issue.body.txt
           ISSUEFILE= issue.body.txt
           echo $ISSUEFILE
