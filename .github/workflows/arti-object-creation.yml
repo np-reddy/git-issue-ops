@@ -8,14 +8,14 @@ on:
 jobs:
   build:
     if: contains(github.event.issue.labels.*.name, 'arti-repo')
-    runs-on: ubuntu-latest
+    runs-on: mylaptop
 
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Parse the Issue
         run: |
-          echo ${{ github.event.issue.body}} > issue.body.txt
+          echo "${{ github.event.issue.body}}" > issue.body.txt
           ISSUEFILE= issue.body.txt
           echo $ISSUEFILE
           which cut
