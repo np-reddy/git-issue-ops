@@ -18,10 +18,15 @@ jobs:
           pwd
           echo ${{ github.event.issue.body}} > issue.body.txt
           ISSUEFILE= issue.body.txt
+          echo $ISSUEFILE
           GITHUB_REPO1=`cat $ISSUEFILE | grep github.repo | cut -d= -f2`
+          echo $GITHUB_REPO1
           ARTI_REPO_TYPE=`cat $ISSUEFILE | grep arti.repo.type | cut -d= -f2`
+          echo $ARTI_REPO_TYPE
           ARTI_REPO_PKG=`cat $ISSUEFILE | grep arti.repo.package | cut -d= -f2`
+          echo $ARTI_REPO_PKG
           ARTI_REPO_NAME=`echo "$GITHUB_REPO1-$ARTI_REPO_PKG-$ARTI_REPO_TYPE"`
+          echo $ARTI_REPO_NAME
       - name: Get Users from the repo
         run: |
           curl -XGET -H "Authorization: token ${{ secrets.GH_ADMIN_TOKEN }}" https://api.github.com/repos/np-reddy/$GITHUB_REPO1/collaborators | jq -r '.[] | .login as $u | .permissions | ([$u, .admin, .maintain, .push, .triage, .pull] | @csv)' | tr -d '"' > github.users.map
