@@ -1,1 +1,1 @@
-
+{"name":"${PERM_NAME}","repo":{"repositories":"${ARTI_REPO_NAME}","include-patterns":"**","actions-groups":{"${GITHUB_REPO1}-admins":"annotate,delete,manage,read,write","${GITHUB_REPO1}-readers":"annotate,read","${GITHUB_REPO1}-writers":"write,annotate,read"}}}
