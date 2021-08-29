@@ -4,13 +4,13 @@
 
 Repository [np-reddy/git-issue-ops](https://github.com/np-reddy/git-issue-ops) is used for defining the necessary objects and workflows to create repository in Artifactory.
 
-Prerequisites:
-[Issue template](https://github.com/np-reddy/git-issue-ops/blob/main/.github/ISSUE_TEMPLATE/artifactory-repo-creation-request.md) to capture details of github repo from which users needs to be synced to artifactory, artifactory repo type and package type.
-[Artifactory Pro or Enterprise](http://34.133.106.71/ui/login/) which is accessible from internet or from the actions runner (if using self-hosted).
-[Setup JFrog CLI](https://github.com/jfrog/setup-jfrog-cli#creating-the-configuration-on-your-local-machine) on your local machine, export the token/key and save it as secret in your GH repo.
-Generate and save github token with organization owner access.
-Create and modify [Artifactory object creation action workflow](https://github.com/np-reddy/git-issue-ops/blob/main/.github/workflows/arti-object-creation.yml) according to your environment.
-Create and modify [Artifactory templates](https://github.com/np-reddy/git-issue-ops/tree/main/artifactory-templates) that suits your requirements.
+#### Prerequisites:
+- [Issue template](https://github.com/np-reddy/git-issue-ops/blob/main/.github/ISSUE_TEMPLATE/artifactory-repo-creation-request.md) to capture details of github repo from which users needs to be synced to artifactory, artifactory repo type and package type.
+- [Artifactory Pro or Enterprise](http://34.133.106.71/ui/login/) which is accessible from internet or from the actions runner (if using self-hosted).
+- [Setup JFrog CLI](https://github.com/jfrog/setup-jfrog-cli#creating-the-configuration-on-your-local-machine) on your local machine, export the token/key and save it as secret in your GH repo.
+- Generate and save github token with organization owner access.
+- Create and modify [Artifactory object creation action workflow](https://github.com/np-reddy/git-issue-ops/blob/main/.github/workflows/arti-object-creation.yml) according to your environment.
+- Create and modify [Artifactory templates](https://github.com/np-reddy/git-issue-ops/tree/main/artifactory-templates) that suits your requirements.
 
 #### Workflow
 1) User creates an issue using [Issue template](https://github.com/np-reddy/git-issue-ops/blob/main/.github/ISSUE_TEMPLATE/artifactory-repo-creation-request.md) and provides following details.
