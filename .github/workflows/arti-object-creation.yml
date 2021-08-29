@@ -8,8 +8,8 @@ on:
 jobs:
   build:
     if: contains(github.event.issue.labels.*.name, 'arti-repo')
-    # runs-on: mylaptop
-    runs-on: ubuntu-latest
+    runs-on: mylaptop
+    # runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
