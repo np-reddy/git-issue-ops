@@ -43,10 +43,10 @@ jobs:
           echo "$USER" >> readers.out
           fi
           done < github.users.map
-      - name: Set JFrog CLI
-        uses: jfrog/setup-jfrog-cli@v1
-        env:
-          JF_ARTIFACTORY_SERVER: ${{ secrets.JF_ARTIFACTORY_SERVER_1 }}
+      #- name: Set JFrog CLI
+      #  uses: jfrog/setup-jfrog-cli@v1
+      #  env:
+      #    JF_ARTIFACTORY_SERVER: ${{ secrets.JF_ARTIFACTORY_SERVER_1 }}
       - name: create Artifactory objects
         run: |
           cp artifactory-templates/user-template.csv arti-user.csv
