@@ -1,5 +1,5 @@
 ---
-name: 2 Artifactory Repo creation request
+name: Artifactory Repo creation request
 about: Artifactory Repo creation request template
 title: Artifactory Repo creation request
 labels: arti-repo
